@@ -14,10 +14,10 @@ app.use(cors({ origin: "*" }));
 app.use(trimTrailingSlash());
 app.use(secureHeaders());
 app.use(
-  bodyLimit({
-    maxSize: 1024 * 7, // 7 mb
-    onError: (c) => c.json({ message: "request payload is too large!!" }, 413),
-  }),
+	bodyLimit({
+		maxSize: 1024 * 7, // 7 mb
+		onError: (c) => c.json({ message: "request payload is too large!!" }, 413),
+	}),
 );
 
 app.get("/", (c) => c.json({ message: "Hello Hono!" }));
