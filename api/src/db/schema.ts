@@ -10,9 +10,16 @@ export const usersTable = sqliteTable("users", {
   bio: text(),
   password: text(),
   avatar_url: text(),
-  role: text({ enum: ["admin", "player"] })
+  created_at: text().notNull().default(sql`CURRENT_TIMESTAMP`),
+  updated_at: text().$onUpdate(() => sql`CURRENT_TIMESTAMP`),
+});
+
+export const postsTable = sqliteTable("posts", {
+  id: text().primaryKey().$defaultFn(nanoid),
+  author_id: text()
     .notNull()
-    .default("player"),
+    .references(() => usersTable.id),
+  body: text(),
   created_at: text().notNull().default(sql`CURRENT_TIMESTAMP`),
   updated_at: text().$onUpdate(() => sql`CURRENT_TIMESTAMP`),
 });
