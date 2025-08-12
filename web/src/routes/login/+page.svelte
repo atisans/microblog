@@ -1,9 +1,11 @@
 <script>
-import { enhance } from "$app/forms";
+	import { login } from './login.remote';
+
+	$inspect(login.result?.error);
 </script>
 
 <section class="mx-auto max-w-5xl">
-	<form action="" method="post" use:enhance>
+	<form {...login}>
 		<legend class="mb-5 text-3xl font-bold">Sign In</legend>
 
 		<fieldset class="space-y-5">
