@@ -29,7 +29,7 @@ app.post("/token", async (c) => {
 
     return c.json({ data: { token } });
   } catch (_e: unknown) {
-    return c.json({ error: _e.message }, 500);
+    return c.json({ error: (_e as Error).message }, 500);
   }
 });
 

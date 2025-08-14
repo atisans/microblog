@@ -1,5 +1,5 @@
 <script>
-	import { login } from './login.remote';
+import { login } from "./login.remote";
 </script>
 
 <main

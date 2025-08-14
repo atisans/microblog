@@ -1,0 +1,20 @@
+import { form } from '$app/server';
+import { API_BASE_URL } from '$env/static/private';
+
+export const register = form(async (formData) => {
+	const form = Object.fromEntries(formData);
+
+	try {
+		const res = await fetch(`${API_BASE_URL}/api/v1/users`, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(form)
+		});
+		const { error } = await res.json();
+		if (!res.ok) return { error };
+	} catch (_e: unknown) {
+		console.log(_e);
+		// @ts-ignore
+		return { error: _e.message };
+	}
+});
