@@ -11,7 +11,7 @@ import { usersTable } from "../db/schema";
 
 const app = new Hono().basePath("/users");
 
-const createUserSchema = z.object({
+const _createUserSchema = z.object({
 	username: z.string().min(2),
 	email: z.email(),
 	password: z.string().min(6),
