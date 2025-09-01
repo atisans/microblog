@@ -22,11 +22,8 @@ pre-commit:
   jobs:
     - name: Check (lint and format) Web
       run: npm run format -w web {all_files}
-      # glob: "*.{js,ts,jsx,tsx}"
+      glob: "*.{js,ts,svelte}"
 
-    - name: Check (lint and format) Api
+    - name: Check (lint and format) API
       run: npm run format -w api {all_files}
       glob: "*.{js,ts}"
-
-    - name: Last formatting for both
-      run: npm run format {all_files}

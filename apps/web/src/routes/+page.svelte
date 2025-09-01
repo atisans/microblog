@@ -1,5 +1,5 @@
 <script>
-// Simple homepage without over-abstraction
+	// Simple homepage without over-abstraction
 </script>
 
 <main class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-100">
