@@ -21,11 +21,12 @@ pre-commit:
   # parallel: true
   jobs:
     - name: Check (lint and format) Web
-      run: npm run check {all_files}
-      root: "web/"
-      glob: "*.{js,ts,jsx,tsx}"
+      run: npm run format -w web {all_files}
+      # glob: "*.{js,ts,jsx,tsx}"
 
     - name: Check (lint and format) Api
-      run: npm run check {all_files}
-      root: "api/"
+      run: npm run format -w api {all_files}
       glob: "*.{js,ts}"
+
+    - name: Last formatting for both
+      run: npm run format {all_files}

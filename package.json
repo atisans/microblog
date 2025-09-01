@@ -7,11 +7,10 @@
     "prepare": "npx lefthook install",
     "web": "npm run dev -w web",
     "api": "npm run dev -w api",
-    "format": "npm run format -w web && npm run check -w api"
+    "format": "npm run format -w web -w api"
   },
   "workspaces": [
-    "web",
-    "api"
+    "apps/*"
   ],
   "devDependencies": {
     "@biomejs/biome": "^2.1.4",
