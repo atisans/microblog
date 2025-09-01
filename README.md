@@ -25,8 +25,10 @@ This project aims to:
 
 ```bash
 /
-│── web/        # SvelteKit frontend app
-│── api/        # Hono API backend
+│── apps/
+    │── web/        # SvelteKit frontend app
+    │── api/        # Hono API backend# SvelteKit frontend app
+# ... the rest
 └── README.md   # You're here
 ```
 
@@ -38,12 +40,12 @@ Both the frontend (SvelteKit) and backend (Hono) projects use environment variab
 PORT=3000
 DATABASE_URL=./microblog.db
 JWT_SECRET_KEY=your-super-secret-key
-CORS_ORIGIN=http://localhost:5173
+CORS_ORIGIN=http://localhost:5173 # an extra optional config
 ```
 
 #### Create a `.env` file inside the web/ folder:
 ```bash
-VITE_API_BASE_URL=http://localhost:5000
+API_ENDPOINT=http://localhost:5000
 ```
 
 # Getting started
