@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "tsx watch index.ts",
 		"build": "tsc",
-		"start": "node dist/index.js",
+		"start": "node build/index.js",
 		"db:seed": "tsx ./src/db/seed.ts",
 		"db:push": "drizzle-kit push",
 		"db:migrate": "drizzle-kit migrate",
@@ -14,7 +14,7 @@
 		"db:drop": "drizzle-kit drop",
 		"db:studio": "drizzle-kit studio",
 		"test": "echo \"no node:test test implemented yet\"",
-		"check": "biome check --write ./"
+		"format": "biome check --write ./"
 	},
 	"engineStrict": true,
 	"dependencies": {

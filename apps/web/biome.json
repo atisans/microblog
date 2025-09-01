@@ -1,7 +1,7 @@
 {
 	"root": false,
 	"extends": ["../biome.json"],
-	"assist": { "actions": { "source": { "organizeImports": "on" } } },
+	"formatter": { "enabled": true, "indentStyle": "tab", "lineWidth": 120 },
 	"linter": {
 		"enabled": true,
 		"rules": {
@@ -72,6 +72,16 @@
 			"style": {
 				"useConst": "error",
 				"useArrayLiterals": "off"
+			},
+			"nursery": {
+				"useSortedClasses": {
+					"level": "info",
+					"fix": "safe",
+					"options": {
+						"attributes": ["classList", "class"],
+						"functions": ["clsx", "cva", "tw", "tw.*"]
+					}
+				}
 			}
 		},
 		"includes": ["**", "!**/dist"]
