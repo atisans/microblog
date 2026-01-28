@@ -13,24 +13,22 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "format": "prettier --write ./src/**/*.svelte && biome check --write ./src/**/*.ts"
   },
-  "dependencies": {
-    "basecoat-css": "^0.3.1"
-  },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.2",
-    "@sveltejs/adapter-node": "^5.2.14",
-    "@sveltejs/kit": "^2.28.0",
-    "@sveltejs/vite-plugin-svelte": "^6.1.1",
-    "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.11",
-    "prettier": "^3.6.2",
-    "prettier-plugin-svelte": "^3.4.0",
-    "prettier-plugin-tailwindcss": "^0.6.14",
-    "svelte": "^5.38.1",
-    "svelte-check": "^4.3.1",
-    "tailwindcss": "^4.1.11",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.2"
+    "@biomejs/biome": "^2.3.13",
+    "@sveltejs/adapter-node": "^5.5.2",
+    "@sveltejs/kit": "^2.50.1",
+    "@sveltejs/vite-plugin-svelte": "^6.2.4",
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.1.18",
+    "basecoat-css": "^0.3.10",
+    "prettier": "^3.8.1",
+    "prettier-plugin-svelte": "^3.4.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "svelte": "^5.48.5",
+    "svelte-check": "^4.3.5",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
   }
 }
