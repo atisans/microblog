@@ -1,4 +1,4 @@
-.PHONY: pre-commit dev backend frontend lint format db:migrate db:generate db:push db:studio db:drop
+.PHONY: pre-commit dev backend frontend lint format db/migrate db/create db/status db/up db/down db/reset
 
 pre-commit:
 	@echo "Running pre-commit checks..."
@@ -27,22 +27,26 @@ format:
 	@cd codebase && make tidy
 	@npm run format -w web
 
-db:migrate:
+db/migrate:
 	@echo "Running database migrations..."
-	@npm run db:migrate -w api
+	@cd codebase && goose -dir migrations sqlite3 microblog.db up
 
-db:generate:
-	@echo "Generating database code with sqlc..."
-	@sqlc generate
+db/create:
+	@if [ -z "$(NAME)" ]; then echo "Usage: make db/create NAME=migration_name"; exit 1; fi
+	@cd codebase && goose -dir migrations sqlite3 microblog.db create $(NAME) sql
 
-db:push:
-	@echo "Pushing database schema..."
-	@npm run db:push -w api
+db/status:
+	@echo "Checking migration status..."
+	@cd codebase && goose -dir migrations sqlite3 microblog.db status
 
-db:studio:
-	@echo "Opening database studio..."
-	@npm run db:studio -w api
+db/up:
+	@echo "Migrating up by one..."
+	@cd codebase && goose -dir migrations sqlite3 microblog.db up-by-one
 
-db:drop:
-	@echo "Dropping database..."
-	@npm run db:drop -w api
+db/down:
+	@echo "Migrating down by one..."
+	@cd codebase && goose -dir migrations sqlite3 microblog.db down
+
+db/reset:
+	@echo "Resetting all migrations..."
+	@cd codebase && goose -dir migrations sqlite3 microblog.db down-to 0
